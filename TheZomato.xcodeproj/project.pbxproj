@@ -12,9 +12,9 @@
 		B17E1790223A426F00F0CFFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B17E178F223A426F00F0CFFD /* Assets.xcassets */; };
 		B17E1793223A426F00F0CFFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17E1791223A426F00F0CFFD /* LaunchScreen.storyboard */; };
 		B17E179B223A45B400F0CFFD /* RestaurantsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17E179A223A45B400F0CFFD /* RestaurantsViewController.swift */; };
-		B17E179F223A4E7B00F0CFFD /* restImageOne.png in Resources */ = {isa = PBXBuildFile; fileRef = B17E179E223A4E7B00F0CFFD /* restImageOne.png */; };
 		B17E17A7223A5FB500F0CFFD /* bgImg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B17E17A6223A5FB500F0CFFD /* bgImg.jpeg */; };
 		B17E17A9223A60D600F0CFFD /* downImg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17E17A8223A60D600F0CFFD /* downImg.png */; };
+		B17E17AB223A6BE200F0CFFD /* zmbg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17E17AA223A6BE200F0CFFD /* zmbg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +25,9 @@
 		B17E1792223A426F00F0CFFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B17E1794223A426F00F0CFFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B17E179A223A45B400F0CFFD /* RestaurantsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantsViewController.swift; sourceTree = "<group>"; };
-		B17E179E223A4E7B00F0CFFD /* restImageOne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restImageOne.png; sourceTree = "<group>"; };
 		B17E17A6223A5FB500F0CFFD /* bgImg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImg.jpeg; sourceTree = "<group>"; };
 		B17E17A8223A60D600F0CFFD /* downImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downImg.png; sourceTree = "<group>"; };
+		B17E17AA223A6BE200F0CFFD /* zmbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zmbg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +74,9 @@
 		B17E179D223A4E6900F0CFFD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B17E179E223A4E7B00F0CFFD /* restImageOne.png */,
 				B17E17A6223A5FB500F0CFFD /* bgImg.jpeg */,
 				B17E17A8223A60D600F0CFFD /* downImg.png */,
+				B17E17AA223A6BE200F0CFFD /* zmbg.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -140,10 +140,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17E17A9223A60D600F0CFFD /* downImg.png in Resources */,
-				B17E179F223A4E7B00F0CFFD /* restImageOne.png in Resources */,
 				B17E1793223A426F00F0CFFD /* LaunchScreen.storyboard in Resources */,
 				B17E1790223A426F00F0CFFD /* Assets.xcassets in Resources */,
 				B17E17A7223A5FB500F0CFFD /* bgImg.jpeg in Resources */,
+				B17E17AB223A6BE200F0CFFD /* zmbg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

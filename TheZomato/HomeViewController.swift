@@ -14,6 +14,7 @@ class HomeViewController: UIViewController
     
     @objc func orderButtonClicked(sender: UIButton!) {
         let vc = RestaurantsViewController()
+        vc.modalPresentationStyle = .overFullScreen;
         self.present(vc, animated: false, completion: nil)
     }
     
@@ -32,6 +33,7 @@ class HomeViewController: UIViewController
         buttonOrder.addTarget(self, action: #selector(self.orderButtonClicked(sender:)), for: .touchUpInside)
         buttonOrder.setTitle("Order", for: .normal)
         buttonOrder.setTitleColor(UIColor.blue, for: .normal)
+        buttonOrder.backgroundColor = UIColor.white
         self.view.addSubview(buttonOrder)
         setButtonConstraint()
     }
@@ -53,12 +55,12 @@ class HomeViewController: UIViewController
     {
         buttonOrder.translatesAutoresizingMaskIntoConstraints = false
         
-        let horizontalConstraint = NSLayoutConstraint(item: buttonOrder, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let horizontalConstraint = NSLayoutConstraint(item: buttonOrder, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 0)
         
         let verticalConstraint = NSLayoutConstraint(item: buttonOrder, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0)
         
-        let widthConstraint = NSLayoutConstraint(item: buttonOrder, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
-        let heightConstraint = NSLayoutConstraint(item: buttonOrder, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+        let widthConstraint = NSLayoutConstraint(item: buttonOrder, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.width)
+        let heightConstraint = NSLayoutConstraint(item: buttonOrder, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 50)
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
 
