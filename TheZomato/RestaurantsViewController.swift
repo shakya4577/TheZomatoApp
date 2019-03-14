@@ -5,17 +5,32 @@ class RestaurantsViewController: UIViewController {
 
     let restImage = UIImageView()
     var initialTouchPoint: CGPoint = CGPoint(x: 0,y: 0)
-    
+    let buttonBack = UIButton()
     override func viewDidLoad()
     {
         super.viewDidLoad()
         self.title = "Resturent page"
-        initRestImage()
         self.modalPresentationStyle = .overFullScreen;
-        
+        initUI()
+    }
+    
+    func initUI()
+    {
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(self.draggedView(_:)))
         self.view.addGestureRecognizer(panGesture)
         
+        restImage.image = UIImage(named: "restImageOne")
+        self.view.addSubview(restImage)
+        setRestImageButtonConstraint()
+        
+        buttonBack.setImage(UIImage(named: "downImg.png"), for: .normal)
+        buttonBack.addTarget(self, action: #selector(self.backbuttonClicked(sender:)), for: .touchUpInside)
+        self.view.addSubview(buttonBack)
+        setBackButtonConstraint()
+    }
+    
+    @objc func backbuttonClicked(sender: UIButton!) {
+        self.dismiss(animated: false, completion: nil)
     }
     
     @objc func draggedView(_ sender:UIPanGestureRecognizer)
@@ -48,16 +63,7 @@ class RestaurantsViewController: UIViewController {
         }
     }
     
-    
-    
-    func initRestImage()
-    {
-        restImage.image = UIImage(named: "restImageOne")
-        self.view.addSubview(restImage)
-        setButtonConstraint()
-    }
-    
-    func setButtonConstraint()
+    func setRestImageButtonConstraint()
     {
         restImage.translatesAutoresizingMaskIntoConstraints = false
         
@@ -65,6 +71,17 @@ class RestaurantsViewController: UIViewController {
         let verticalConstraint = NSLayoutConstraint(item: restImage, attribute: NSLayoutConstraint.Attribute.centerY, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerY, multiplier: 1, constant: 0)
         let widthConstraint = NSLayoutConstraint(item: restImage, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
         let heightConstraint = NSLayoutConstraint(item: restImage, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 100)
+        view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+    }
+    
+    func setBackButtonConstraint()
+    {
+        buttonBack.translatesAutoresizingMaskIntoConstraints = false
+        
+        let horizontalConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 50)
+        let widthConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 50)
+        let heightConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 50)
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
 
