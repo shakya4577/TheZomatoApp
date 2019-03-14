@@ -10,10 +10,6 @@ class UIViewController_SwipeDismiss : UIViewController
         let panGesture = UIPanGestureRecognizer(target: self, action: #selector(draggedView(_:)))
         self.view.addGestureRecognizer(panGesture)
     }
-    public func initPanGesture()
-    {
-       
-    }
     
     @objc func draggedView(_ sender:UIPanGestureRecognizer)
     {
