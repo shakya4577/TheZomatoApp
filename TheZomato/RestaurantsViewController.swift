@@ -21,7 +21,7 @@ class RestaurantsViewController: UIViewController {
         
         restImage.image = UIImage(named: "zmbg.png")
         self.view.addSubview(restImage)
-        setRestImageButtonConstraint()
+        setBackgroundImageButtonConstraint()
         
         buttonBack.setImage(UIImage(named: "downImg.png"), for: .normal)
         buttonBack.addTarget(self, action: #selector(self.backbuttonClicked(sender:)), for: .touchUpInside)
@@ -37,52 +37,52 @@ class RestaurantsViewController: UIViewController {
     {
         let currentCoordinates = sender.location(in: self.view?.window)
         
-        if sender.state == UIGestureRecognizer.State.began
-        {
-            startCoordinates = currentCoordinates
-         }
-        else if sender.state == UIGestureRecognizer.State.changed
-        {
-            if currentCoordinates.y - startCoordinates.y > 0
+        switch sender.state {
+        case .began:startCoordinates = currentCoordinates;
+        case .changed:
+            do
             {
-                self.view.frame = CGRect(x: 0, y: currentCoordinates.y - startCoordinates.y, width: self.view.frame.size.width, height: self.view.frame.size.height)
+                if currentCoordinates.y - self.startCoordinates.y > 0
+            {
+                self.view.frame = CGRect(x: 0, y: currentCoordinates.y - self.startCoordinates.y, width: self.view.frame.size.width, height: self.view.frame.size.height)
             }
         }
-        else if sender.state == UIGestureRecognizer.State.ended || sender.state == UIGestureRecognizer.State.cancelled
-        {
-            if currentCoordinates.y - startCoordinates.y > 100
+        case .ended,.cancelled :
+            do {
+                if currentCoordinates.y - self.startCoordinates.y > 150
             {
                 self.dismiss(animated: true, completion: nil)
             }
             else
             {
-                UIView.animate(withDuration: 0.3, animations:
-               {
-                    self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
+                UIView.animate(withDuration: 0.5, animations:
+                    {
+                        self.view.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
                 })
             }
         }
+        default: break
+            
+        }
     }
     
-    func setRestImageButtonConstraint()
+    func setBackgroundImageButtonConstraint()
     {
         restImage.translatesAutoresizingMaskIntoConstraints = false
-        
-        let horizontalConstraint = NSLayoutConstraint(item: restImage, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: restImage, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0)
-        let widthConstraint = NSLayoutConstraint(item: restImage, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.width)
-        let heightConstraint = NSLayoutConstraint(item: restImage, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: self.view.frame.height)
+        let horizontalConstraint = NSLayoutConstraint(item: restImage, attribute: .left, relatedBy: .equal, toItem: view, attribute:.left, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: restImage, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 0)
+        let widthConstraint = NSLayoutConstraint(item: restImage, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.view.frame.width)
+        let heightConstraint = NSLayoutConstraint(item: restImage, attribute: .height, relatedBy: .equal, toItem: nil, attribute:.notAnAttribute, multiplier: 1, constant: self.view.frame.height)
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
     func setBackButtonConstraint()
     {
         buttonBack.translatesAutoresizingMaskIntoConstraints = false
-        
-        let horizontalConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.centerX, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.centerX, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: view, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 50)
-        let widthConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 50)
-        let heightConstraint = NSLayoutConstraint(item: buttonBack, attribute: NSLayoutConstraint.Attribute.height, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: 50)
+        let horizontalConstraint = NSLayoutConstraint(item: buttonBack, attribute: .centerX, relatedBy: .equal, toItem: view, attribute:.centerX, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: buttonBack, attribute: .top, relatedBy: .equal, toItem: view, attribute: .top, multiplier: 1, constant: 50)
+        let widthConstraint = NSLayoutConstraint(item: buttonBack, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+        let heightConstraint = NSLayoutConstraint(item: buttonBack, attribute: .height, relatedBy:.equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
 
