@@ -15,6 +15,9 @@
 		B17E17A7223A5FB500F0CFFD /* bgImg.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = B17E17A6223A5FB500F0CFFD /* bgImg.jpeg */; };
 		B17E17A9223A60D600F0CFFD /* downImg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17E17A8223A60D600F0CFFD /* downImg.png */; };
 		B17E17AB223A6BE200F0CFFD /* zmbg.png in Resources */ = {isa = PBXBuildFile; fileRef = B17E17AA223A6BE200F0CFFD /* zmbg.png */; };
+		B17E17AF223A7EE300F0CFFD /* UIViewController+SwipeDismiss.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17E17AE223A7EE300F0CFFD /* UIViewController+SwipeDismiss.swift */; };
+		B17E17B1223A85D900F0CFFD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17E17B0223A85D900F0CFFD /* SearchViewController.swift */; };
+		B17E17B4223A87C300F0CFFD /* foodSearch.png in Resources */ = {isa = PBXBuildFile; fileRef = B17E17B3223A87C300F0CFFD /* foodSearch.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		B17E17A6223A5FB500F0CFFD /* bgImg.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bgImg.jpeg; sourceTree = "<group>"; };
 		B17E17A8223A60D600F0CFFD /* downImg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = downImg.png; sourceTree = "<group>"; };
 		B17E17AA223A6BE200F0CFFD /* zmbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = zmbg.png; sourceTree = "<group>"; };
+		B17E17AE223A7EE300F0CFFD /* UIViewController+SwipeDismiss.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+SwipeDismiss.swift"; sourceTree = "<group>"; };
+		B17E17B0223A85D900F0CFFD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		B17E17B3223A87C300F0CFFD /* foodSearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodSearch.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +72,9 @@
 				B17E178F223A426F00F0CFFD /* Assets.xcassets */,
 				B17E1791223A426F00F0CFFD /* LaunchScreen.storyboard */,
 				B17E1794223A426F00F0CFFD /* Info.plist */,
+				B17E17AE223A7EE300F0CFFD /* UIViewController+SwipeDismiss.swift */,
 				B17E179A223A45B400F0CFFD /* RestaurantsViewController.swift */,
+				B17E17B0223A85D900F0CFFD /* SearchViewController.swift */,
 			);
 			path = TheZomato;
 			sourceTree = "<group>";
@@ -77,6 +85,7 @@
 				B17E17A6223A5FB500F0CFFD /* bgImg.jpeg */,
 				B17E17A8223A60D600F0CFFD /* downImg.png */,
 				B17E17AA223A6BE200F0CFFD /* zmbg.png */,
+				B17E17B3223A87C300F0CFFD /* foodSearch.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -140,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B17E17A9223A60D600F0CFFD /* downImg.png in Resources */,
+				B17E17B4223A87C300F0CFFD /* foodSearch.png in Resources */,
 				B17E1793223A426F00F0CFFD /* LaunchScreen.storyboard in Resources */,
 				B17E1790223A426F00F0CFFD /* Assets.xcassets in Resources */,
 				B17E17A7223A5FB500F0CFFD /* bgImg.jpeg in Resources */,
@@ -154,8 +164,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17E17B1223A85D900F0CFFD /* SearchViewController.swift in Sources */,
 				B17E178B223A426D00F0CFFD /* HomeViewController.swift in Sources */,
 				B17E179B223A45B400F0CFFD /* RestaurantsViewController.swift in Sources */,
+				B17E17AF223A7EE300F0CFFD /* UIViewController+SwipeDismiss.swift in Sources */,
 				B17E1789223A426D00F0CFFD /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

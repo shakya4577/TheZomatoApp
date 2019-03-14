@@ -3,7 +3,8 @@ import UIKit
 
 class HomeViewController: UIViewController
 {
-    let buttonOrder = UIButton()
+    let buttonRestaurant = UIButton()
+    let buttonSearch = UIButton()
     let backgroundImage = UIImageView()
     override func viewDidLoad()
     {
@@ -12,25 +13,41 @@ class HomeViewController: UIViewController
         initUI()
     }
     
-    @objc func orderButtonClicked(sender: UIButton!) {
-        let vc = RestaurantsViewController()
+    @objc func buttonClicked(sender: UIButton!)
+    {
+        var vc:UIViewController_SwipeDismiss = UIViewController_SwipeDismiss();
+        switch sender {
+        case buttonRestaurant:
+            vc = RestaurantsViewController()
+        case buttonSearch:
+            vc = SearchViewController()
+        default:
+            break
+        }
         vc.modalPresentationStyle = .overFullScreen;
         self.present(vc, animated: false, completion: nil)
     }
     
     func initUI()
     {
-
         backgroundImage.contentMode = .scaleToFill
         backgroundImage.image = UIImage(named: "bgImg.jpeg");
         self.view.addSubview(backgroundImage);
         setBackgroundImageConts()
-        buttonOrder.addTarget(self, action: #selector(self.orderButtonClicked(sender:)), for: .touchUpInside)
-        buttonOrder.setTitle("Order", for: .normal)
-        buttonOrder.setTitleColor(UIColor.blue, for: .normal)
-        buttonOrder.backgroundColor = UIColor.white
-        self.view.addSubview(buttonOrder)
-        setButtonConstraint()
+        
+        buttonRestaurant.addTarget(self, action: #selector(self.buttonClicked(sender:)), for: .touchUpInside)
+        buttonRestaurant.setTitle("Restaurant", for: .normal)
+        buttonRestaurant.setTitleColor(UIColor.blue, for: .normal)
+        buttonRestaurant.backgroundColor = UIColor.white
+        self.view.addSubview(buttonRestaurant)
+        setRestButtonOneConstraint()
+        
+        buttonSearch.addTarget(self, action: #selector(self.buttonClicked(sender:)), for: .touchUpInside)
+        buttonSearch.setTitle("Search", for: .normal)
+        buttonSearch.setTitleColor(UIColor.blue, for: .normal)
+        buttonSearch.backgroundColor = UIColor.white
+        self.view.addSubview(buttonSearch)
+        setRestButtonTwoConstraint()
     }
     
     func setBackgroundImageConts()
@@ -43,13 +60,23 @@ class HomeViewController: UIViewController
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
-    func setButtonConstraint()
+    func setRestButtonOneConstraint()
     {
-        buttonOrder.translatesAutoresizingMaskIntoConstraints = false
-        let horizontalConstraint = NSLayoutConstraint(item: buttonOrder, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0)
-        let verticalConstraint = NSLayoutConstraint(item: buttonOrder, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
-        let widthConstraint = NSLayoutConstraint(item: buttonOrder, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.view.frame.width)
-        let heightConstraint = NSLayoutConstraint(item: buttonOrder, attribute: .height, relatedBy:.equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+        buttonRestaurant.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = NSLayoutConstraint(item: buttonRestaurant, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: buttonRestaurant, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let widthConstraint = NSLayoutConstraint(item: buttonRestaurant, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.view.frame.width/2)
+        let heightConstraint = NSLayoutConstraint(item: buttonRestaurant, attribute: .height, relatedBy:.equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
+        view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
+    }
+    
+    func setRestButtonTwoConstraint()
+    {
+        buttonSearch.translatesAutoresizingMaskIntoConstraints = false
+        let horizontalConstraint = NSLayoutConstraint(item: buttonSearch, attribute: .left, relatedBy: .equal, toItem: buttonRestaurant, attribute: .right, multiplier: 1, constant: 0)
+        let verticalConstraint = NSLayoutConstraint(item: buttonSearch, attribute: .bottom, relatedBy: .equal, toItem: view, attribute: .bottom, multiplier: 1, constant: 0)
+        let widthConstraint = NSLayoutConstraint(item: buttonSearch, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: self.view.frame.width/2)
+        let heightConstraint = NSLayoutConstraint(item: buttonSearch, attribute: .height, relatedBy:.equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 50)
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
 
