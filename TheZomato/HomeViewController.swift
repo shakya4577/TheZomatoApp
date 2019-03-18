@@ -40,14 +40,14 @@ class HomeViewController: UIViewController
         buttonRestaurant.setTitleColor(UIColor.blue, for: .normal)
         buttonRestaurant.backgroundColor = UIColor.white
         self.view.addSubview(buttonRestaurant)
-        setRestButtonOneConstraint()
+        setRestButtonConstraint()
         
         buttonSearch.addTarget(self, action: #selector(self.buttonClicked(sender:)), for: .touchUpInside)
         buttonSearch.setTitle("Search", for: .normal)
         buttonSearch.setTitleColor(UIColor.blue, for: .normal)
         buttonSearch.backgroundColor = UIColor.white
         self.view.addSubview(buttonSearch)
-        setRestButtonTwoConstraint()
+        setSearchButtonConstraint()
     }
     
     func setBackgroundImageConts()
@@ -60,7 +60,7 @@ class HomeViewController: UIViewController
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
-    func setRestButtonOneConstraint()
+    func setRestButtonConstraint()
     {
         buttonRestaurant.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = NSLayoutConstraint(item: buttonRestaurant, attribute: .left, relatedBy: .equal, toItem: view, attribute: .left, multiplier: 1, constant: 0)
@@ -70,7 +70,7 @@ class HomeViewController: UIViewController
         view.addConstraints([horizontalConstraint, verticalConstraint, widthConstraint, heightConstraint])
     }
     
-    func setRestButtonTwoConstraint()
+    func setSearchButtonConstraint()
     {
         buttonSearch.translatesAutoresizingMaskIntoConstraints = false
         let horizontalConstraint = NSLayoutConstraint(item: buttonSearch, attribute: .left, relatedBy: .equal, toItem: buttonRestaurant, attribute: .right, multiplier: 1, constant: 0)
